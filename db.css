@@ -1,0 +1,30 @@
+body{
+  font-family: arial,sans-serif;
+  padding:20px;
+
+
+}
+form{
+  width: 300px;
+}
+label{
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+input ,select{
+  width: 100%;
+  padding:6px;
+  margin-bottom: 15px;
+  border:1px solid #ccc;
+  border-radius: 4px;
+
+}
+input[type="submit"]{
+  background-color: #4CAF50;
+  color:white;
+  cursor:pointer;
+}
+input[type="submit"]:hover{
+  background-color: #45a049;
+}

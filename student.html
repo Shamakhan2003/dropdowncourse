@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="db.css">
+</head>
+<body>
+
+  <h2>Student Registration Form</h2>
+
+  <form action="student.php" method="post">
+    <label for="student_name">Name:</label>
+    <input type="text" id="student_name" name="student_name" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="student_age" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="" disabled selected>Select Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="course">Course Name:</label>
+    <select id="course" name="course_name" required>
+      <option value="" disabled selected>Select a Course</option>
+    </select>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    fetch('get_course.php')
+      .then(response => response.json())
+      .then(data => {
+        const dropdown = document.getElementById('course');
+        data.forEach(course => {
+          const option = document.createElement('option');
+          option.value = course.id;
+          option.text = course.course_name;
+          dropdown.appendChild(option);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching courses:', error);
+      });
+  </script>
+
+</body>
+</html>
